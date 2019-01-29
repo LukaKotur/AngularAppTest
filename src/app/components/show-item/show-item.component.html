@@ -1,0 +1,10 @@
+<a [routerLink]="['/show', show.id, 'details']"> 
+  <div class="showitem">
+    <div class="card">
+      <img src="http://image.tmdb.org/t/p/original{{show.poster_path}}" class="card-img-top poster">
+      <div class="card-body">
+        <p class="card-text">{{ show.name }}</p>
+      </div>
+    </div>
+  </div>
+</a>

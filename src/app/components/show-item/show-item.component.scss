@@ -1,0 +1,14 @@
+.poster {
+    height: auto;
+    max-height: 400px;
+}
+.showitem {
+    margin-bottom: 2rem;
+}
+
+a {
+    
+    &:hover{
+        text-decoration: none;
+    }
+}
