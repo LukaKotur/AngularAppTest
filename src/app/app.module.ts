@@ -1,28 +1,26 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http'
-import { FormsModule } from '@angular/forms'
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { HttpClientModule } from "@angular/common/http";
+import { FormsModule } from "@angular/forms";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { ShowListsComponent } from './components/show-lists/show-lists.component';
-import { ShowItemComponent } from './components/show-item/show-item.component';
-import { ShowDetailsComponent } from './components/show-details/show-details.component';
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { ShowListsComponent } from "./components/show-lists/show-lists.component";
+import { ShowItemComponent } from "./components/show-item/show-item.component";
+import { ShowDetailsComponent } from "./components/show-details/show-details.component";
+import { ShowResolver } from "./services/show-resolver.service";
+import { HeaderComponent } from './components/layout/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ShowListsComponent,
     ShowItemComponent,
-    ShowDetailsComponent
+    ShowDetailsComponent,
+    HeaderComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule
-  ],
-  providers: [],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  providers: [ShowResolver],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

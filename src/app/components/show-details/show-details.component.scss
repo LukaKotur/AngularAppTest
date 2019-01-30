@@ -1,0 +1,26 @@
+.custom-container {
+  margin-top: 0px;
+  position: relative;
+}
+img.poster {
+}
+
+.back {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  margin-top: 0;
+}
+/* Centered text */
+.centered {
+  text-align: center;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
