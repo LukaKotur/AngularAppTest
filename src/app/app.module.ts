@@ -10,6 +10,8 @@ import { ShowItemComponent } from "./components/show-item/show-item.component";
 import { ShowDetailsComponent } from "./components/show-details/show-details.component";
 import { ShowResolver } from "./services/show-resolver.service";
 import { HeaderComponent } from './components/layout/header/header.component';
+import { FindShowComponent } from './components/find-show/find-show.component';
+import { ShowSearchResultsComponent } from './components/show-search-results/show-search-results.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { HeaderComponent } from './components/layout/header/header.component';
     ShowListsComponent,
     ShowItemComponent,
     ShowDetailsComponent,
-    HeaderComponent
+    HeaderComponent,
+    FindShowComponent,
+    ShowSearchResultsComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [ShowResolver],

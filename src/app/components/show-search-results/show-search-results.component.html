@@ -1,0 +1,22 @@
+<div class="container">
+  <h2>Find a show</h2>
+
+  <div class="row">
+    <form class="col-md-12">
+      <div class="form-group">
+        <app-find-show
+          (loading)="loading = $event"
+          (shows)="updateResults($event)"
+        ></app-find-show>
+      </div>
+    </form>
+  </div>
+
+  <div class="row" style="margin-top:20px">
+    <app-show-item
+      class="col-md-3"
+      *ngFor="let show of shows?.results"
+      [show]="show"
+    ></app-show-item>
+  </div>
+</div>

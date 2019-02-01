@@ -1,7 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Show } from '../../models/Show';
-import { ShowService } from '../../services/show.service'
-
 
 @Component({
   selector: 'app-show-item',

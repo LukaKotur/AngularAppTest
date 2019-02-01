@@ -1,4 +1,4 @@
-export interface Show {
+export class Show {
     original_name:     string;
     genre_ids:         number[];
     name:              string;
