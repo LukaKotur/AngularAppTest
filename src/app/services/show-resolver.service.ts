@@ -17,7 +17,6 @@ export class ShowResolver implements Resolve<Show> {
     state: RouterStateSnapshot
   ): Observable<any> | Promise<any> | any {
     const id = route.params.id;
-    console.log("evo me u resolveru lol" + id);
     return this.showService.getShow(route.params.id);
   }
 }

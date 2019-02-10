@@ -41,57 +41,82 @@
     </div>
   </div>
 
-  <!-- Previous Episode -->
-  <div class="row" style="margin-top:15px;">
-    <div class="card col-md-6 p-0 text-center">
-      <div class="card-header">Previous Episode</div>
-      <img
-        src="http://image.tmdb.org/t/p/w1280{{
-          show.last_episode_to_air.still_path
-        }}"
-        class="img-fluid poster"
-        alt=""
-      />
-      <div class="card-body">
-        <h5 class="card-title">
-          Season {{ show.last_episode_to_air.season_number }}, Episode
-          {{ show.last_episode_to_air.episode_number }}:
-          {{ show.last_episode_to_air.name }}
-        </h5>
-        <p class="card-text text-justify">
-          {{ show.last_episode_to_air.overview }}
-        </p>
-        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-      </div>
-      <div class="card-footer text-muted">
-        Air Date: {{ show.last_episode_to_air.air_date | date: "dd.MM.yyyy" }}
+  <div class="row">
+    <h3 class="col-md-12">Cast</h3>
+    <div class="col-md-12 flex-container mb-1">
+      <div *ngFor="let cast of show?.credits.cast" class="f-it mb-1">
+        <img
+          src="http://image.tmdb.org/t/p/original{{ cast.profile_path }}"
+          class="img-fluid flex-item"
+          style="max-width:80px"
+        />
+        <div class="flex-item ml-2" style="align-self: center; flex-grow: 0">
+          <span style="text-align:center;"
+            ><a href="https://www.imdb.com/name/{{ getActorImdb(cast?.id) }}">
+              {{ cast.name }}</a
+            >
+            as "{{ cast.character }}"</span
+          >
+        </div>
       </div>
     </div>
+  </div>
 
-    <!-- Next Episode -->
-    <div *ngIf="show.next_episode_to_air" class="col-md-6">
-      <div class="card p-0 text-center">
-        <div class="card-header">Next Episode</div>
+  <div class="row">
+    <h3>Recent episodes</h3>
+    <!-- Previous Episode -->
+    <div class="row" style="margin-top:15px;">
+      <div class="card col-md-6 p-0 text-center">
+        <div class="card-header">Previous Episode</div>
         <img
           src="http://image.tmdb.org/t/p/w1280{{
-            show.next_episode_to_air.still_path
+            show.last_episode_to_air.still_path
           }}"
           class="img-fluid poster"
           alt=""
         />
         <div class="card-body">
           <h5 class="card-title">
-            Season {{ show.next_episode_to_air.season_number }}, Episode
-            {{ show.next_episode_to_air.episode_number }}:
-            {{ show.next_episode_to_air.name }}
+            Season {{ show.last_episode_to_air.season_number }}, Episode
+            {{ show.last_episode_to_air.episode_number }}:
+            {{ show.last_episode_to_air.name }}
           </h5>
           <p class="card-text text-justify">
-            {{ show.next_episode_to_air.overview }}
+            {{ show.last_episode_to_air.overview }}
           </p>
           <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
         </div>
         <div class="card-footer text-muted">
-          Air Date: {{ show.next_episode_to_air.air_date | date: "dd.MM.yyyy" }}
+          Air Date: {{ show.last_episode_to_air.air_date | date: "dd.MM.yyyy" }}
+        </div>
+      </div>
+
+      <!-- Next Episode -->
+      <div *ngIf="show.next_episode_to_air" class="col-md-6">
+        <div class="card p-0 text-center">
+          <div class="card-header">Next Episode</div>
+          <img
+            src="http://image.tmdb.org/t/p/w1280{{
+              show.next_episode_to_air.still_path
+            }}"
+            class="img-fluid poster"
+            alt=""
+          />
+          <div class="card-body">
+            <h5 class="card-title">
+              Season {{ show.next_episode_to_air.season_number }}, Episode
+              {{ show.next_episode_to_air.episode_number }}:
+              {{ show.next_episode_to_air.name }}
+            </h5>
+            <p class="card-text text-justify">
+              {{ show.next_episode_to_air.overview }}
+            </p>
+            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+          </div>
+          <div class="card-footer text-muted">
+            Air Date:
+            {{ show.next_episode_to_air.air_date | date: "dd.MM.yyyy" }}
+          </div>
         </div>
       </div>
     </div>

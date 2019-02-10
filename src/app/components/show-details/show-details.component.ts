@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from "@angular/core";
 import { ShowService } from "../../services/show.service";
 import { ActivatedRoute } from "@angular/router";
 import { ShowDetails } from "src/app/models/ShowDetails";
+import { Actor } from "src/app/models/Actor";
 
 @Component({
   selector: "app-show-details",
@@ -11,6 +12,7 @@ import { ShowDetails } from "src/app/models/ShowDetails";
 export class ShowDetailsComponent implements OnInit {
   @Input() id: number;
   show: ShowDetails;
+  actors: any[];
 
   constructor(
     private route: ActivatedRoute,
@@ -26,6 +28,22 @@ export class ShowDetailsComponent implements OnInit {
     // });
 
     this.show = this.route.snapshot.data["show"];
+    this.actors = [];
+    this.show.credits.cast.forEach(person => {
+      this.showService.getActor(person.id).subscribe(actor => {
+        this.actors.push(actor);
+      });
+    });
+
     console.log(this.show);
+    console.log(this.actors);
+  }
+
+  getActorImdb(id: number): any {
+    if (typeof this.actors.find(x => x.id == id) !== "undefined") {
+      return this.actors.find(x => x.id == id).imdb_id;
+    }else {
+      return "";
+    }
   }
 }

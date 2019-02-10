@@ -24,3 +24,27 @@ img.poster {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+.flex-item {
+  align-self: baseline;
+  flex-grow: 2;
+  h5 {
+    text-align: right;
+  }
+}
+
+// .f-con {
+//   display:flex;
+// }
+
+.f-it {
+  flex-basis: 400px;
+  flex-grow: 1;
+  display: flex;
+}

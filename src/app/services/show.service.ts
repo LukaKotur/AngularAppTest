@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Show } from "../models/Show";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
+import { Actor } from "../models/Actor";
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -15,6 +16,7 @@ const httpOptions = {
 })
 export class ShowService {
   url: string = "https://api.themoviedb.org/3/tv/";
+  personUrl: string = "https://api.themoviedb.org/3/person/";
   apiKey: string = "?api_key=a51b17f07161ad5f5646855d878e4c1e&language=en-US";
   page: string = "&page=1";
   credits: string = "&append_to_response=credits";
@@ -32,5 +34,9 @@ export class ShowService {
 
   findShow(term: string): Observable<any> {
     return this.http.get<Show>(`${this.searchUrl}${term}`);
+  }
+
+  getActor(id: number): Observable<any> {
+    return this.http.get<Actor>(`${this.personUrl}${id}${this.apiKey}`);
   }
 }
